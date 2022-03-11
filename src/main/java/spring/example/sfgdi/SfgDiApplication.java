@@ -3,10 +3,7 @@ package spring.example.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import spring.example.sfgdi.controllers.ConstructorInjectedController;
-import spring.example.sfgdi.controllers.MyController;
-import spring.example.sfgdi.controllers.PropertyInjectedController;
-import spring.example.sfgdi.controllers.SetterInjectedController;
+import spring.example.sfgdi.controllers.*;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -29,5 +26,9 @@ public class SfgDiApplication {
 		System.out.println("________ Constructor");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		System.out.println("________ International");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 	}
 }
