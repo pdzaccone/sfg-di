@@ -9,5 +9,4 @@ class SfgDiApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

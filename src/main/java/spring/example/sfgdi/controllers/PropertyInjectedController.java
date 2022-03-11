@@ -7,10 +7,10 @@ import spring.example.sfgdi.services.GreetingService;
 @Controller
 public class PropertyInjectedController {
 
-    @Autowired
-    public GreetingService greetingService;
+	@Autowired
+	public GreetingService greetingService;
 
-    public String getGreeting() {
-        return greetingService.sayGreeting();
-    }
+	public String getGreeting() {
+		return greetingService.sayGreeting();
+	}
 }

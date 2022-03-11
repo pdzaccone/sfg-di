@@ -8,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ConstructorInjectedControllerTest {
 
-    ConstructorInjectedController controller;
+	ConstructorInjectedController controller;
 
-    @BeforeEach
-    void setUp() {
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
-    }
+	@BeforeEach
+	void setUp() {
+		controller = new ConstructorInjectedController(new GreetingServiceImpl());
+	}
 
-    @Test
-    void getGreeting() {
-        System.out.println(controller.getGreeting());
-    }
+	@Test
+	void getGreeting() {
+		System.out.println(controller.getGreeting());
+	}
 }
