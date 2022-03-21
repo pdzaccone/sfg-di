@@ -1,5 +1,7 @@
 package spring.example.sfgdi.config;
 
+import com.spring.pet.PetService;
+import com.spring.pet.PetServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -10,6 +12,23 @@ import spring.example.sfgdi.services.*;
 
 @Configuration
 public class GreetingServiceConfig {
+
+	@Bean
+	PetServiceFactory petServiceFactory() {
+		return new PetServiceFactory();
+	}
+
+	@Profile({"dog", "default"})
+	@Bean
+	PetService dogPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("dog");
+	}
+
+	@Profile({"cat"})
+	@Bean
+	PetService catPetService(PetServiceFactory petServiceFactory) {
+		return petServiceFactory.getPetService("cat");
+	}
 
 	@Bean
 	ConstructorGreetingService constructorGreetingService() {
