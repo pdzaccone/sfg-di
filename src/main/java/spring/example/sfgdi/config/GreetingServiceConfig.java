@@ -2,14 +2,12 @@ package spring.example.sfgdi.config;
 
 import com.spring.pet.PetService;
 import com.spring.pet.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import spring.example.sfgdi.repositories.EnglishGreetingRepository;
 import spring.example.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import spring.example.sfgdi.services.*;
 
+@ImportResource("classpath:spring-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -30,10 +28,10 @@ public class GreetingServiceConfig {
 		return petServiceFactory.getPetService("cat");
 	}
 
-	@Bean
-	ConstructorGreetingService constructorGreetingService() {
-		return new ConstructorGreetingService();
-	}
+//	@Bean
+//	ConstructorGreetingService constructorGreetingService() {
+//		return new ConstructorGreetingService();
+//	}
 
 	@Bean
 	PropertyGreetingService propertyGreetingService() {
