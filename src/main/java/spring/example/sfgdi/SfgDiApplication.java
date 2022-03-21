@@ -3,8 +3,10 @@ package spring.example.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import spring.example.sfgdi.controllers.*;
 
+@ComponentScan(basePackages = {"spring.example.sfgdi", "com.spring.pet"})
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -30,5 +32,9 @@ public class SfgDiApplication {
 		System.out.println("________ International");
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
+
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("--- The best pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
 	}
 }
